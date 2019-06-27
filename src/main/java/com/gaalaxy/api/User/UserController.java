@@ -29,13 +29,26 @@ public class UserController {
 
         try {
             userData = userService.authLogin(user.getDsUser(), user.getDsPass());
+
+            if(userData != null){
+
             responseModel.setData(userData);
             responseModel.setMessage(msg);
             responseModel.setResponseStatus(200);
             return responseModel;
+
+            }
+            else{
+
+                msg = "Erro ao autenticar o usuário";
+                responseModel.setMessage(msg);
+                responseModel.setResponseStatus(404);
+                return responseModel;
+
+            }
         }
         catch (Exception e){
-            msg = "Erro ao realizar autenticação do usuário!";
+            msg = "Ocorreu um erro inesperado, favor contatar o suporte!";
             responseModel.setMessage(msg);
             responseModel.setResponseStatus(404);
             return responseModel;

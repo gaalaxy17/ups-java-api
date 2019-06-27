@@ -35,7 +35,7 @@ public class UserService {
         String hash = new BigInteger(1,md.digest()).toString(16);
 
         try {
-            UserEntity userData = userRepository.getUserEntityByDsUserAndDsPass(dsUser,dsPass);
+            UserEntity userData = userRepository.getUserEntityByDsUserAndDsPass(dsUser,hash);
             return userData;
         }
         catch (Exception e){
