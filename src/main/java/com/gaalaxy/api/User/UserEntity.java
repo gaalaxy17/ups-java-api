@@ -4,27 +4,27 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="users")
+@Table(name="user")
 public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="cduser")
+    @Column(name="cdUser")
     private Integer cdUser;
 
-    @Column(name="dsuser")
+    @Column(name="dsUser")
     private String dsUser;
 
-    @Column(name="dspass")
+    @Column(name="dsPass")
     private String dsPass;
 
-    @Column(name="dsnome")
+    @Column(name="dsNome")
     private String dsNome;
 
-    @Column(name="dstipo")
-    private Integer dsTipo;
+    @Column(name="cdTipo")
+    private Integer cdTipo;
 
-    @Column(name="fgisativo")
+    @Column(name="fgIsAtivo")
     private Integer fgIsAtivo;
 
     public Integer getCdUser() {
@@ -55,12 +55,12 @@ public class UserEntity {
         this.dsNome = dsNome;
     }
 
-    public Integer getDsTipo() {
-        return dsTipo;
+    public Integer getCdTipo() {
+        return cdTipo;
     }
 
-    public void setDsTipo(Integer dsTipo) {
-        this.dsTipo = dsTipo;
+    public void setCdTipo(Integer cdTipo) {
+        this.cdTipo = cdTipo;
     }
 
     public Integer getFgIsAtivo() {

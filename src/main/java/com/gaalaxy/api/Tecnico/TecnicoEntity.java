@@ -8,13 +8,13 @@ public class TecnicoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="cdtecnico")
+    @Column(name="cdTecnico")
     private Integer cdTecnico;
 
-    @Column(name="nmtecnico")
+    @Column(name="nmTecnico")
     private String nmTecnico;
 
-    @Column(name="cdtipotecnico")
+    @Column(name="cdTipoTecnico")
     private Integer cdTipoTecnico;
 
     public Integer getCdTecnico() {

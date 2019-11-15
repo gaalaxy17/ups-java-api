@@ -1,5 +1,6 @@
 package com.gaalaxy.api.Atendimento;
 
+import com.gaalaxy.api.Empresa.EmpresaEntity;
 import com.gaalaxy.api.Unidade.UnidadeEntity;
 import com.gaalaxy.api.User.UserEntity;
 
@@ -12,34 +13,41 @@ public class AtendimentoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cdatendimento")
+    @Column(name = "cdAtendimento")
     private Integer cdAtendimento;
 
-    @Column(name="dstipoatendimento")
+    @Column(name="dsTipoAtendimento")
     private String dsTipoAtendimento;
 
-    @Column(name="dsequipamento")
+    @Column(name="dsEquipamento")
     private String dsEquipamento;
 
-    @Column(name="dtatendimento")
+    @Column(name="dtAtendimento")
     private Date dtAtendimento;
-
-    @OneToOne
+    
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="cd_empresa")
+    private EmpresaEntity empresa;
+    
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="cd_unidade")
     private UnidadeEntity unidade;
 
-    @Column(name="dsdescricao")
+    @Column(name="dsDescricao")
     private String dsDescricao;
 
-    @Column(name="ststatus")
+    @Column(name="stStatus")
     private String stStatus;
 
-    @Column(name="ststatusinterno")
-    private String stStatusINterno;
-
-    @OneToOne
+    @Column(name="stStatusInterno")
+    private String stStatusInterno;
+    
+    @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="cd_user_chamado")
     private UserEntity userChamado;
 
-    @OneToOne
+    @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="cd_user_atendimento")
     private UserEntity userAtendimento;
 
     public Integer getCdAtendimento() {
@@ -98,12 +106,12 @@ public class AtendimentoEntity {
         this.stStatus = stStatus;
     }
 
-    public String getStStatusINterno() {
-        return stStatusINterno;
+    public String getStStatusInterno() {
+        return stStatusInterno;
     }
 
-    public void setStStatusINterno(String stStatusINterno) {
-        this.stStatusINterno = stStatusINterno;
+    public void setStStatusInterno(String stStatusInterno) {
+        this.stStatusInterno = stStatusInterno;
     }
 
     public UserEntity getUserChamado() {

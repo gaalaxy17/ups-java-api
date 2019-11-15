@@ -15,20 +15,19 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping(path="getall")
-    public List<UserEntity> getAllUsers(){
-        return userService.getAll();
-    }
+//    @GetMapping(path="getall")
+//    public List<UserEntity> getAllUsers(){
+//        return userService.getAll();
+//    }
 
     @PostMapping(path="auth")
     public ResponseModel authLogin(@RequestBody UserEntity user){
 
         ResponseModel responseModel = new ResponseModel();
         String msg = "";
-        UserEntity userData;
 
         try {
-            userData = userService.authLogin(user.getDsUser(), user.getDsPass());
+            UserEntity userData = userService.authLogin(user.getDsUser(), user.getDsPass());
 
             if(userData != null){
 

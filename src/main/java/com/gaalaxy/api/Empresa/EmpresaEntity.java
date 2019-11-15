@@ -8,19 +8,30 @@ public class EmpresaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="cdempresa")
+    @Column(name="cdEmpresa")
     private Integer cdEmpresa;
 
     @Column(name="nmEmpresa")
     private String nmEmpresa;
 
-    @Column(name="nrcnpj")
+    @Column(name="nrCnpj")
     private String nrCnpj;
 
     @Column(name="nrIe")
     private String nrIe;
+    
+    @Column(name="fg_ativo")
+    private Integer fgAtivo;
 
-    public Integer getCdEmpresa() {
+    public Integer getFgAtivo() {
+		return fgAtivo;
+	}
+
+	public void setFgAtivo(Integer fgAtivo) {
+		this.fgAtivo = fgAtivo;
+	}
+
+	public Integer getCdEmpresa() {
         return cdEmpresa;
     }
 

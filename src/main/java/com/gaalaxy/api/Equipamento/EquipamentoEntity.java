@@ -10,14 +10,14 @@ public class EquipamentoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cdequipamento")
+    @Column(name = "cdEquipamento")
     private Integer cdEquipamento;
 
-    @Column(name = "dsequipamento")
+    @Column(name = "dsEquipamento")
     private String dsEquipamento;
 
-    @ManyToOne
-    @JoinColumn(name="cdunidade")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="cdUnidade")
     private UnidadeEntity unidade;
 
 }

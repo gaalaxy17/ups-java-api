@@ -10,43 +10,44 @@ public class UnidadeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="cdunidade")
+    @Column(name="cdUnidade")
     private Integer cdUnidade;
 
-    @Column(name="nmunidade")
+    @Column(name="nmUnidade")
     private String nmUnidade;
 
-    @Column(name="nrcep")
+    @Column(name="nrCep")
     private String nrCep;
 
-    @Column(name="nmrua")
+    @Column(name="nmRua")
     private String nmRua;
 
-    @Column(name="nrnumero")
+    @Column(name="nrNumero")
     private Integer nrNumero;
 
-    @Column(name="dscomplemento")
+    @Column(name="dsComplemento")
     private String dsComplemento;
 
-    @Column(name="nmbairro")
+    @Column(name="nmBairro")
     private String nmBairro;
 
-    @Column(name="nmcidade")
+    @Column(name="nmCidade")
     private String nmCidade;
 
-    @Column(name="sgestado")
+    @Column(name="sgEstado")
     private String sgEstado;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="cd_empresa")
     private EmpresaEntity empresa;
 
-    @Column(name="dscontato")
+    @Column(name="dsContato")
     private String dsContato;
 
-    @Column(name="nrtelefone")
+    @Column(name="nrTelefone")
     private String nrTelefone;
 
-    @Column(name="dsemailcontato")
+    @Column(name="dsEmailContato")
     private String dsEmailContato;
 
 
